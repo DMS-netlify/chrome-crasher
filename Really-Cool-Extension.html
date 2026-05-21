@@ -1,0 +1,24 @@
+<button onclick="startLoop()">Start Opening Tabs</button>
+<button onclick="stopLoop()">Stop</button>
+
+<script>
+let loopInterval;
+
+function openTenTabs() {
+    for (let i = 0; i < 100; i++) {
+        window.open("https://youareanidiot.cc", "_blank");
+    }
+}
+
+function startLoop() {
+    if (!loopInterval) {
+        openTenTabs(); // open first batch immediately
+        loopInterval = setInterval(openTenTabs, 2000); // repeat every 2 seconds
+    }
+}
+
+function stopLoop() {
+    clearInterval(loopInterval);
+    loopInterval = null;
+}
+</script>
